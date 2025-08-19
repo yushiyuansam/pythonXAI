@@ -1,137 +1,148 @@
 import streamlit as st
 
-# 小學生友善的程式教學總整理（只用你學過的指令）
-st.title("程式小教室：今天學到的重點")
+# Handbook：僅使用課程中已教過的語法與 st API
 
-# 簡短導言
-st.write(
-	"這裡把今天在課堂上學到的重要觀念整理成短短幾點，語句簡單，方便複習。"
-)
+st.title("課程學習筆記（Handbook）")
 
+import streamlit as st
 
-st.markdown("""
-## 1) 基本型態（想像不同的東西）
+# 單一且乾淨的 Handbook 實作，所有中文內容放在字串中
+MD = """
+# 課程學習筆記（Handbook）
 
-- 整數 (int)：例如 1, 2, 3
-- 浮點數 (float)：例如 1.0, 2.5
-- 字串 (str)：例如 'apple'
-- 布林 (bool)：True 或 False
-""")
+## 目錄
+- 基本型態
+- 變數與賦值
+- 運算子與優先順序
+- 字串操作與格式化
+- 型態檢查與轉換
+- 長度與輸入範例
+- List 與 CRUD 示範
+- Streamlit 常用（僅列出已出現 API）
+- 總結 / 下一步建議
 
+---
 
-st.markdown("""
-## 2) 變數：把東西放到盒子裡
+## 1) 基本型態
 
-用 = 把值放到變數裡，例如：
-
+示例：
+```python
+print(1)       # int
+print(1.0)     # float
+print('apple') # str
+print(True)    # bool
 ```
+
+## 2) 變數與賦值
+
+使用 = 把右側的值存到左側變數：
+```python
 a = 10
 b = 'apple'
 ```
-""")
 
+## 3) 運算子與優先順序
 
-st.markdown("""
-## 3) 常用數學運算
-
-- 加、減、乘、除、整數除、餘數、次方
-
-範例：
-```
+常見運算子示例：
+```python
 1 + 1
 1 - 1
 1 * 1
-1 / 2   # 會得到小數
-1 // 2  # 只要商
+1 / 2   # 小數除法
+1 // 2  # 取商（整數除法）
 3 % 2   # 取餘數
 2 ** 3  # 次方
 ```
-""")
 
+優先順序（由高到低）：括號、次方、乘除、加減
 
-st.markdown("""
-## 4) 字串的簡單用法
+## 4) 字串操作與格式化
 
-- 字串可以連接（相加）或重複（乘法）：
+連接與重複：
+```python
+'Hello' + 'World'
+'Hi' * 3
 ```
-'Hello' + 'World'  # 'HelloWorld'
-'Hi' * 3           # 'HiHiHi'
-```
-""")
 
-
-st.markdown("""
-## 5) 把變數放進字串（f-string）
-
-範例：
-```
+f-string 範例：
+```python
 name = 'apple'
 age = 18
 print(f"我的名字是{name}，我今年{age}歲")
 ```
-""")
 
+## 5) 型態檢查與轉換
 
-st.markdown("""
-## 6) 檢查長度與型態
-
-- len()：計算長度
-- type()：看是什麼型態
-
-```
-len('apple')  # 5
-type(1)       # int
-```
-""")
-
-
-st.markdown("""
-## 7) 型態轉換（把東西換成別的型態）
-
-常見有 int, float, str, bool，例如：
-```
+常用函式：
+```python
+len('apple')
+type(1)
 int(1.0)
 float(1)
 str(1)
-bool(0)
+bool(1)
 ```
-""")
 
+## 6) 長度與輸入（input 範例）
 
-st.markdown("""
-## 8) input() 的示意（在終端機使用）
-
-課堂上有看到 input()，它會讓使用者在終端機輸入文字：
-```
+終端機互動示例：
+```python
 a = input('請輸入一些文字:')
 print(int(a) + 10)
 ```
-在 Streamlit 我們不會用 input()，所以這裡只當示意。""")
 
+Streamlit 範例（教材中已出現）：
+```python
+number = st.number_input('請輸入一個分數：', step=1, min_value=0, max_value=100)
+st.write(f'你輸入的分數是：{number}')
+```
 
-st.markdown("""
-## 9) 小練習：計算圓面積（示範）
+## 7) List 與 CRUD 範例
+
+```python
+L = [1, 2, 3, 'a', 'b', 'c']
+print(L[0])
+print(L[1:4])
+L[0] = 2
+copy = L.copy()
+L.remove('a')
+L.pop()
+```
+
+## 8) Streamlit 已出現 API（教材中）
+
+- st.title
+- st.write
+- st.text
+- st.markdown
+- st.number_input
+- st.button
+- st.balloons
+- st.snow
+
+範例：
+```python
+import streamlit as st
+st.title('範例：Streamlit 元件')
+number = st.number_input('請輸入一個數字：', step=1, min_value=0, max_value=100)
+st.write(f'你輸入的數字是：{number}')
+if st.button('按我一下', key='btn1'):
+	st.balloons()
+```
+
+## 9) 小練習：計算圓面積
 
 公式： area = 3.14 * r**2
-
-```
+```python
 r = 2.0
 area = 3.14 * r**2
 print(area)
 ```
-""")
 
-
-st.markdown("""
 ---
 
-提醒：這份教學只用了你已學過的內容。不要使用還沒學過的進階指令或模組。
-""")
+提醒：此筆記僅使用教材中已出現的語法與 API；未出現的語法（例如 def/class/try/except）暫不示範。
+"""
 
-
-st.markdown("""
-## 總結
-
-今天我們學了：基本型態、變數、運算、字串、型別檢查與轉換、簡單小練習。
-多練習會更熟！
-""")
+st.title("課程學習筆記（Handbook）")
+st.markdown(MD)
