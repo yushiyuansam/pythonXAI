@@ -85,3 +85,8 @@ st.write(f"ans={st.session_state.ans}")  # 顯示儲存在 session_state 的值
 # 提供一個觸發重新整理 (rerun) 的按鈕
 if st.button("重新整理畫面", key="banana"):
     st.rerun()
+
+st.write("---")
+st.title("文字輸入元件")
+text = st.text_input("請輸入文字", value="這是文字")
+st.write(f"你輸入的文字是：{text}")

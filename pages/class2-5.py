@@ -65,6 +65,12 @@ b = a.copy()  # 建立淺複本，a 與 b 指向不同物件
 b[0] = 2
 print(a, b)  # 只有 b 改變 -> ([1, 2, 3], [2, 2, 3])
 
+# CRUD: Update 操作（更新）
+# list append
+L = [1, 2, 3]
+L.append(4)  # 在最後面加一個元素
+print(L)
+
 # CRUD: Delete 操作（刪除）
 # 移除元素有多種方式
 # 1) remove(value) 會移除第一個匹配到的值
