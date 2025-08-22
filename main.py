@@ -18,7 +18,7 @@ all_pages = {
         st.Page("pages/class4-3.py", title="💵💶💷購頻平台"),
         st.Page("pages/class5-2-2.py", title="🤖💬聊天泡泡"),
         st.Page("pages/class5-2-3.py", title="💬🗨️聊天輸入框"),
-        st.Page("pages/class5-2-4.py", title="🔑🔐設定OpenAI API Key"),
+        st.Page("pages/class5-2-4.py", title="🔑🔐AI聊天機器人"),
     ],
 }
 
