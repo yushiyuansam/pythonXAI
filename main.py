@@ -3,7 +3,7 @@ import streamlit as st
 st.set_page_config(page_title="SamPython XAI", page_icon="🐍", layout="wide")
 
 all_pages = {
-    "🏠導覽": [
+    "": [
         st.Page("pages/home.py", title="🏠首頁"),
         st.Page("pages/handbook.py", title="🗒️課程筆記"),
     ],
